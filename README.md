@@ -8,7 +8,7 @@ A collection of [Claude Code](https://docs.anthropic.com/en/docs/claude-code) sk
 
 | Skill | Description |
 |-------|-------------|
-| — | — |
+| slide-deck | Build polished PowerPoint presentations from structured markdown with extracted design themes |
 
 ## Installation
 
