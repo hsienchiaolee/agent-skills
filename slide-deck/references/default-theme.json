@@ -1,0 +1,117 @@
+{
+  "meta": {
+    "name": "Clean Professional",
+    "source": "default",
+    "slide_width": 13.333,
+    "slide_height": 7.5
+  },
+  "colors": {
+    "background": {
+      "light": "#FFFFFF",
+      "dark": "#1B3A4B"
+    },
+    "text": {
+      "heading": "#2D3436",
+      "body": "#5F6B6D",
+      "muted": "#8B9598",
+      "on_dark": "#FFFFFF"
+    },
+    "accents": {
+      "green": "#3D7B6F",
+      "warm": "#C4956A",
+      "red": "#C17B7B",
+      "dark": "#1B3A4B",
+      "olive": "#8B9A6B"
+    },
+    "card": {
+      "background": "#EEF4F2",
+      "code_background": "#1B3A4B",
+      "code_text": "#CDD6F4"
+    },
+    "semantic": {
+      "positive": "green",
+      "contrast": "warm",
+      "negative": "red",
+      "neutral": "dark"
+    }
+  },
+  "typography": {
+    "heading_font": "Arial",
+    "body_font": "Arial",
+    "mono_font": "Courier New",
+    "scale": {
+      "hero_title": 44,
+      "slide_title": 24,
+      "card_title": 16,
+      "subtitle": 15,
+      "body": 13,
+      "small": 12,
+      "caption": 11,
+      "badge": 9,
+      "code": 11
+    }
+  },
+  "layout": {
+    "margin": {
+      "left": 0.8,
+      "right": 0.8,
+      "top": 0.4,
+      "bottom": 0.4
+    },
+    "content_top": 1.3,
+    "card_gap": 0.3,
+    "card_padding": 0.4,
+    "badge_position": [0.8, 0.15],
+    "subtitle_top": 1.2
+  },
+  "components": {
+    "card": {
+      "corner_radius": 0.02,
+      "accent_bar": true,
+      "accent_bar_height": 0.06,
+      "border": false,
+      "shadow": false
+    },
+    "bullet": {
+      "character": "•",
+      "spacing_pt": 10,
+      "sub_character": "›",
+      "sub_indent_spaces": 4
+    },
+    "callout": {
+      "height": 0.6,
+      "accent": "dark",
+      "bold": true,
+      "font_size": 12,
+      "bottom_margin": 0.4
+    },
+    "badge": {
+      "uppercase": true,
+      "bold": true,
+      "color": "green",
+      "font_size": 9
+    },
+    "code_block": {
+      "padding": 0.3,
+      "line_spacing_pt": 2
+    }
+  },
+  "slide_patterns": {
+    "title": {
+      "split_position": 6.8,
+      "left_bg": "light",
+      "right_bg": "dark",
+      "title_size": 44,
+      "image_area": {
+        "left": 8.5,
+        "top": 2.5,
+        "size": 1.0
+      }
+    },
+    "closing": {
+      "background": "dark",
+      "title_size": 56,
+      "centered": true
+    }
+  }
+}
