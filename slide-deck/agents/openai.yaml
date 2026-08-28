@@ -1,0 +1,4 @@
+interface:
+  display_name: "Slide Deck"
+  short_description: "Build polished PowerPoint decks from markdown"
+  default_prompt: "Use $slide-deck to create a polished PowerPoint presentation from my content or outline."

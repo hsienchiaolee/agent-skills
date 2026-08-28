@@ -9,16 +9,16 @@ Build professional presentations through a structured workflow: establish a desi
 
 ## Prerequisites
 
-The build scripts require `python-pptx`. Find a Python environment that has it, following this priority:
+Use `uv` to run the bundled scripts in the locked environment defined by this
+skill's `pyproject.toml` and `uv.lock`. Pass `--locked` so dependency resolution
+cannot change during a task:
 
-1. **Existing virtualenv**: Look for `.venv/bin/python`, `venv/bin/python`, or any `.venv-*/bin/python` in the project directory. Test with `<path>/bin/python -c "import pptx"`. If it works, use it.
-2. **Managed Python**: If the project uses a Python manager (check for `.mise.toml`, `uv.lock`, `.python-version`, `pyproject.toml`), test with `python -c "import pptx"` first. If not installed, use that tool to add it (e.g. `uv pip install python-pptx`, `mise exec -- pip install python-pptx`).
-3. **Create a virtualenv**: If nothing above applies, create one and install:
-   ```bash
-   python3 -m venv .venv && .venv/bin/pip install python-pptx
-   ```
+```bash
+uv run --project <skill-path> --locked python <skill-path>/scripts/build_deck.py --help
+```
 
-Use whichever Python has `python-pptx` available for all script invocations below.
+If `uv` is unavailable, use a Python 3.10+ interpreter that can import `pptx`.
+Do not install dependencies into the user's global Python environment.
 
 ## Workflow
 
@@ -31,7 +31,7 @@ The theme captures the full design system: colors, typography, layout, spacing, 
 When the user provides an existing PPTX to match:
 
 ```bash
-python <skill-path>/scripts/extract_theme.py <reference.pptx> -o theme.json
+uv run --project <skill-path> --locked python <skill-path>/scripts/extract_theme.py <reference.pptx> -o theme.json
 ```
 
 This analyzes every slide and extracts:
@@ -119,7 +119,7 @@ badge: SECTION NAME
 Convert the approved markdown + theme into a PowerPoint file:
 
 ```bash
-python <skill-path>/scripts/build_deck.py slides.md --theme theme.json -o presentation.pptx
+uv run --project <skill-path> --locked python <skill-path>/scripts/build_deck.py slides.md --theme theme.json -o presentation.pptx
 ```
 
 If `--theme` is omitted, it uses the theme path from the markdown frontmatter, falling back to the default theme.
