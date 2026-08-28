@@ -9,6 +9,7 @@ Each skill lives in its own top-level directory:
 ```
 <skill-name>/
   SKILL.md              # skill definition (required)
+  agents/openai.yaml    # Codex UI metadata (optional)
   evals/evals.json      # eval suite (optional)
   scripts/              # helper scripts (optional)
   references/           # reference docs, schemas, templates (optional)

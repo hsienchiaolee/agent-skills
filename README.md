@@ -8,6 +8,7 @@ A collection of [Claude Code](https://docs.anthropic.com/en/docs/claude-code) sk
 
 | Skill | Description |
 |-------|-------------|
+| simplify | Simplify PR, branch, and local code changes while preserving behavior and test coverage |
 | slide-deck | Build polished PowerPoint presentations from structured markdown with extracted design themes |
 
 ## Installation
@@ -44,6 +45,7 @@ git pull && ./install.sh
 Skills are built with the `/skill-creator:skill-creator` slash command inside Claude Code. Each skill has:
 
 - **`SKILL.md`** — The skill definition with a `name` and `description` in frontmatter, followed by instructions
+- **`agents/openai.yaml`** — Optional Codex UI metadata for skill lists and default prompts
 - **`evals/`** — Optional test cases for measuring skill quality
 - **`scripts/`** — Optional helper scripts the skill invokes
 - **`references/`** — Optional reference docs, schemas, or templates
