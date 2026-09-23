@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-SKILLS_DIR="$HOME/.claude/skills"
 REPO_DIR="$(cd "$(dirname "$0")" && pwd)"
 
 removed=0
@@ -19,12 +18,15 @@ for dir in "$REPO_DIR"/*/; do
     $match || continue
   fi
 
-  target="$SKILLS_DIR/$name"
-  if [ -L "$target" ] && [ "$(readlink "$target")" = "$dir" ]; then
-    rm "$target"
-    echo "  removed: $name"
-    removed=$((removed + 1))
-  fi
+  # Check both locations even if the corresponding app was uninstalled.
+  for skills_dir in "$HOME/.claude/skills" "$HOME/.agents/skills"; do
+    target="$skills_dir/$name"
+    if [ -L "$target" ] && [ "$(readlink "$target")" = "$dir" ]; then
+      rm "$target"
+      echo "  removed: $target"
+      removed=$((removed + 1))
+    fi
+  done
 done
 
 echo ""

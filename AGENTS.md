@@ -1,6 +1,6 @@
 # Skills Repository
 
-A collection of Claude Code skills (agentic tools).
+A collection of Claude Code and Codex skills (agentic tools).
 
 ## Structure
 
@@ -20,4 +20,4 @@ Each skill lives in its own top-level directory:
 - Skill directories are named with lowercase kebab-case
 - Each skill must have a `SKILL.md` with valid frontmatter (`name`, `description`)
 - Skills are created and managed via `/skill-creator:skill-creator`
-- To install a skill, symlink its directory into `~/.claude/skills/`
+- Use `./install.sh` to symlink skills into `~/.claude/skills/` for Claude Code and `~/.agents/skills/` for Codex, based on detected installations
