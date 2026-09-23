@@ -1,0 +1,55 @@
+{
+  "skill_name": "review-docs",
+  "evals": [
+    {
+      "id": 1,
+      "name": "Converted comparison loses meaning",
+      "prompt": "Review only docs/options.md. Its complete contents are:\n1 # Options\n2 ## Option A\n3 Supported under the enterprise plan Configuration parity must be tested Same unresolved linking conflict.\n4 ## Option B\n5 Supported under all plans. Linking behavior has not been tested.",
+      "expectations": [
+        "Identify the broken sentence and ambiguous capability-versus-verification distinction at docs/options.md:3.",
+        "Recommend complete sentences and explicit unverified status without inventing linking behavior.",
+        "Do not require a table or claim external verification."
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Useful repetition and long table cells",
+      "prompt": "Review only these excerpts for readability. docs/start.md:1 says \"Before deleting a workspace, export records you need; deletion is permanent.\" docs/reference.md:40 repeats this warning next to the deletion command. docs/reference.md:50-53 contains a two-column comparison of retention modes with one complete, 35-word description per cell. Headers are descriptive and the rendered table wraps legibly at narrow widths. Project conventions allow long cells. No other problems are supplied.",
+      "expectations": [
+        "Do not flag useful local warnings as needless duplication.",
+        "Do not invent a density or accessibility problem from word count alone.",
+        "Report excerpt coverage and no material findings on the supplied evidence; do not claim independent rendering."
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Overcorrection removes contract and history",
+      "prompt": "Re-review the supplied diff only. The previous review requested clearer headings in docs/contract.md and better framing in docs/history.md. Before: contract.md:20 required snapshot application in one transaction and rejected stale acknowledgements; history.md:8 quoted the owner verbatim: \"Offline support is desirable, but is not approved yet.\" After: contract.md:20 says \"Apply snapshots and acknowledgements.\" history.md:8 says \"The owner approved offline support.\" The new headings are clear. No implementation or other evidence is available.",
+      "expectations": [
+        "Recognize heading correction while flagging lost transaction/order invariants and invented approval with current file/line evidence.",
+        "Request restoration of precise constraints and verbatim owner content with appropriate framing.",
+        "Avoid implementation work and do not claim source or runtime validation."
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Evidence dates and limited verification",
+      "prompt": "Review only docs/research.md and docs/index.md excerpts. research.md:3 says \"Feature availability checked June 2 for version 4.\" index.md:7 says \"All feature claims reverified August 9.\" The only August 9 evidence supplied is a commit that reformatted research.md. Do not browse or execute commands.",
+      "expectations": [
+        "Flag unsupported revalidation at docs/index.md:7 and preserve the narrower June 2 scope.",
+        "Recommend correcting or qualifying the index rather than initiating new research.",
+        "State the verification limits and do not infer current feature availability."
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Project authority and preserved unique content",
+      "prompt": "Review these complete supplied passages. Project conventions require issue links in ADRs and allow 120-column prose. docs/decision.md:10 links its approval issue and states the selected queue, retry behavior, and rationale. docs/brief.md:5 repeats the selected queue in one sentence for onboarding, then uniquely explains that retries can duplicate deliveries and consumers must be idempotent. No contradiction is supplied. The user wants a review only.",
+      "expectations": [
+        "Follow project conventions over personal ticket and width preferences.",
+        "Keep helpful orientation and unique idempotency information; do not demand merger merely because the queue name repeats.",
+        "Do not invent findings or edit files; give a verdict limited to supplied passages."
+      ]
+    }
+  ]
+}
