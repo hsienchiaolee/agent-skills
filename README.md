@@ -10,6 +10,7 @@ A collection of skills for Claude Code and Codex — reusable agentic capabiliti
 |-------|-------------|
 | simplify | Simplify PR, branch, and local code changes while preserving behavior and test coverage |
 | review-docs | Review repository documentation for accuracy, readability, and maintenance |
+| write-technical-doc | Draft and revise engineering documentation with evidence and reader-focused structure |
 | slide-deck | Build polished PowerPoint presentations from structured markdown with extracted design themes |
 
 ## Installation

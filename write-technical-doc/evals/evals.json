@@ -1,0 +1,71 @@
+{
+  "skill_name": "write-technical-doc",
+  "evals": [
+    {
+      "id": 1,
+      "name": "Proposal preserves status and missing rationale",
+      "prompt": "Draft a short design proposal in this conversation for engineers deciding a cache policy. Supplied facts: refresh failures currently return errors immediately. Proposed policy: serve cached results for at most 30 seconds after refresh fails, then return errors. Approval is pending. No measurements or business justification are available. Use only this evidence; do not create files.",
+      "expectations": [
+        "Lead with the proposed behavior and decision requested, distinguishing it from current behavior.",
+        "Preserve the failure condition, time bound, and subsequent error behavior.",
+        "Identify missing justification without inventing performance gains, approval, or measurements.",
+        "Return a useful draft in the conversation without external actions or mandatory extra sections."
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Investigation retains uncertainty",
+      "prompt": "Write a concise investigation summary using only these facts: service logs show a timeout at 14:02 and retry at 14:03. Support reported a duplicate write at 14:04. Logs have no request identifiers linking the retry to the duplicate. Version and root cause are unknown. The audience is on-call engineers. Return prose here.",
+      "expectations": [
+        "Distinguish confirmed log events and the support report from an unproven causal relationship.",
+        "Preserve useful event order without claiming the retry caused the duplicate.",
+        "State the missing correlation evidence and unknown root cause; do not fabricate a version, reproduction, or fix.",
+        "Produce the requested summary rather than only advice on writing it."
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Operational guide preserves exact contract",
+      "prompt": "Write a short Markdown guide here for experienced operators reloading routing rules. Supplied contract: from the directory containing routes.yaml, router validate --file routes.yaml prints Valid on success. Continue only after validation succeeds. router reload --file routes.yaml prints Rules activated on success. Either failure leaves previous rules active; correct the reported error before retrying. Do not execute commands.",
+      "expectations": [
+        "Include the working directory, exact commands in order, and condition for proceeding.",
+        "Include success outputs and failure/recovery behavior.",
+        "Keep commands copyable and avoid replacing them with conceptual descriptions.",
+        "Do not claim execution or invent installation requirements."
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Superseded decision retains historical rationale",
+      "prompt": "Revise this decision record, returning the revised text here. Existing text: \"# Queue selection\nApproved May 4, 2025 by the platform team: use Queue A. Its regional deployment meets the residency constraint. Queue B was rejected because it lacked regional deployment.\" New evidence: on September 2, 2026, the platform team approved Queue B after it added regional deployment; the new decision is docs/decisions/queue-b.md. Preserve the historical record and link the successor. Use only supplied facts.",
+      "expectations": [
+        "Mark the old record superseded and link the successor.",
+        "Preserve the original decision, approval date and authority, residency rationale, and historical reason for rejecting Queue B.",
+        "Do not rewrite the 2025 choice as Queue B or describe its old limitation as necessarily current.",
+        "Do not invent migration completion or claim the deployed system already uses Queue B."
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Narrow edit respects scope",
+      "prompt": "Fix only the units and affected example in this complete Markdown page; return the revised page here. \"# Polling\nUse polling to observe job progress.\n\n## Interval\npoll_interval is measured in milliseconds; default 10, range 1–60. For half a minute, set poll_interval=30000.\n\n## Ownership\nThe jobs team owns this API.\" Canonical schema: integer seconds, default 10, range 1–60 inclusive. Do not restructure the page.",
+      "expectations": [
+        "Correct milliseconds to seconds and the example to poll_interval=30.",
+        "Retain the default, range, headings, introduction, and ownership statement.",
+        "Do not add a summary, diagram, or unrelated stylistic rewrites.",
+        "Return the revised page and do not claim runtime testing."
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Conflicting evidence remains visible",
+      "prompt": "Draft a brief current-behavior reference from these conflicting sources only. docs/config.md says max_attempts defaults to 5. The supplied current schema says its default is 3, but the runtime may override schema defaults and its configuration is unavailable. Readers need the effective production default. Do not browse or execute tools; return a useful partial draft here.",
+      "expectations": [
+        "Distinguish the schema default of 3 from the documentation claim of 5.",
+        "State that the effective production default is unverified because runtime configuration is missing.",
+        "Do not silently select either value as confirmed production behavior.",
+        "Identify the evidence needed to resolve the conflict while still producing a useful partial draft."
+      ]
+    }
+  ]
+}
