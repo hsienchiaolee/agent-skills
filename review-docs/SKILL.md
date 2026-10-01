@@ -39,7 +39,16 @@ alone. Do not invent findings to fill a report.
 an achievable learning path; task guides need usable actions; references need lookup completeness;
 explanations need coherent reasoning. Decision records and research reports need their own context
 and evidence. Check entry points, descriptive headings, terminology, and links. Mixed purposes can
-work when readers can find the part they need.
+work when readers can find the part they need. In proposals and investigations, check whether the
+recommendation or result appears early enough to orient the reader, with supporting detail below.
+Do not require a summary section when the opening already serves that purpose.
+
+**Level of detail.** Match detail to the reader's task. Design explanations should make behavior,
+responsibilities, and trade-offs understandable without reconstructing them from implementation
+steps. Procedures, API references, and debugging guides may require exact commands, symbols, and
+examples. Recommend moving or reducing detail only when it obscures the answer; preserve what
+readers need to act or verify a claim. Suggest a diagram when a specific relationship is difficult
+to follow in prose, not merely because a document describes architecture.
 
 **Accuracy and evidence.** Compare material claims with available code, contracts, results, and
 authoritative sources. Distinguish accepted decisions, proposals, examples, documented capability,
@@ -94,6 +103,10 @@ Report commands as run only if they were actually run. Do not infer rendered fai
 width alone or present proposed validation as completed testing.
 
 ## Findings and verdict
+
+For examples of actionable findings and proportionate remedies, consult
+[review examples](references/review-examples.md) when calibrating a review. Examples illustrate
+judgment, not required wording or document structure.
 
 Adapt presentation to the task; the report must contain:
 

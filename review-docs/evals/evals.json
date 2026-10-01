@@ -50,6 +50,47 @@
         "Keep helpful orientation and unique idempotency information; do not demand merger merely because the queue name repeats.",
         "Do not invent findings or edit files; give a verdict limited to supplied passages."
       ]
+    },
+    {
+      "id": 6,
+      "name": "Missing prerequisite blocks first-run procedure",
+      "prompt": "Review the complete supplied setup guide against the supplied CLI contract. docs/setup.md:1 is \"# First workspace\"; line 2 is \"Install widget.\"; line 3 is \"Run widget init --name demo.\"; line 4 is \"Success prints Workspace created.\" CLI contract: a clean installation has no credentials; widget login stores credentials; widget init requires stored credentials and otherwise exits with Authentication required. Do not execute commands or browse.",
+      "expectations": [
+        "Identify the missing authentication step at docs/setup.md:3 as blocking the documented clean-install flow.",
+        "Recommend widget login before initialization while retaining the workspace-name option and success output.",
+        "Base the finding on the supplied CLI contract, distinguish it from runtime verification, and give a changes-requested verdict limited to the supplied scope."
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Reference units contradict authoritative schema",
+      "prompt": "Review these supplied API excerpts for client developers. docs/api.md:10 says \"poll_interval: milliseconds between polls; default 10; range 1–60.\" Line 11 says \"For a half-minute interval, send poll_interval=30000.\" Supplied canonical schema: poll_interval is an integer number of seconds, defaults to 10, minimum 1, maximum 60. No runtime access is available.",
+      "expectations": [
+        "Flag incorrect units and the out-of-range example using both affected locations and the schema as evidence.",
+        "Recommend seconds and poll_interval=30 while preserving the correct default and allowed range.",
+        "Retain the exact parameter and runnable example rather than requesting conceptual prose only; do not claim runtime verification."
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Decision request buried under implementation mechanics",
+      "prompt": "Review the organization of a complete proposal for engineers deciding its behavior. docs/cache-proposal.md:1 is \"# Cache proposal\". Lines 2–45 explain map allocation, helper call order, lock acquisition, and buffer recycling. Line 46 first states \"Proposal: serve cached results for up to 30 seconds after refresh fails; after that, return an error. Approval is requested for this stale-result policy.\" Lines 47–49 explain the latency-versus-freshness trade-off. The helper details are needed later for implementation review. No code or runtime evidence is supplied; assess organization only.",
+      "expectations": [
+        "Identify that the opening delays the behavior and decision readers are asked to assess, citing the opening and line 46.",
+        "Recommend leading with the proposed policy, decision request, and trade-off while retaining useful implementation detail later.",
+        "Preserve the failure condition, 30-second bound, subsequent error, and proposed status; do not invent approval or assess implementation correctness.",
+        "Do not require a fixed summary format or an architecture diagram."
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Useful specificity and adequate opening need no rewrite",
+      "prompt": "Review this complete short operational guide for experienced operators. docs/reload.md:1 is \"# Reload routing rules\"; line 2 is \"Reload routing rules without restarting the service.\"; line 3 is \"From the directory containing routes.yaml, run router validate --file routes.yaml. Continue only if it prints Valid.\"; line 4 is \"Run router reload --file routes.yaml. Success prints Rules activated. If validation or reload fails, the previous rules remain active; correct the reported error before retrying.\" The supplied canonical CLI contract confirms both commands, outputs, working-directory requirement, and failure behavior. Limit the review to this source and contract; rendering is unavailable.",
+      "expectations": [
+        "Report no material findings and a ready verdict within the supplied scope.",
+        "Preserve exact commands and outputs; do not demand a separate summary, conceptual rewrite, or diagram.",
+        "State source/contract coverage and the rendering limitation without claiming execution or repository-wide verification."
+      ]
     }
   ]
 }
